@@ -13,7 +13,6 @@ function createWindow () {
         show: false,
         title: 'MailJS',
         icon: './icon.png',
-        frame: false,
         backgroundColor: '#dd4b39',
         darkTheme: true,
         titleBarStyle: 'hidden',

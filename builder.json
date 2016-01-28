@@ -1,0 +1,9 @@
+{
+    "win" : {
+        "title" : "MailJS",
+        "version" : "0.1.0",
+        "publisher": "AtlasDev",
+        "icon" : "icon.ico",
+        "verbosity": 1
+    }
+}
