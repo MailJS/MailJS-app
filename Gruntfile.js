@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                     name: 'MailJS',
                     dir: 'app',
                     out: 'dist',
-                    platform: 'win32',
+                    platform: 'all',
                     arch: 'all',
                     asar: false,
                     overwrite: true,
@@ -48,16 +48,80 @@ module.exports = function(grunt) {
                     config: 'builder.json'
                 }
             }
-        }
+        },
+		compress: {
+			win32: {
+				options: {
+					archive: 'build/MailJS-win-ia32.zip',
+                    level: 9,
+                    pretty: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: './dist/MailJS-win32-ia32',
+						src: ['**'],
+						dest: 'MailJS-Desktop',
+                        mode: 'gzip'
+					}
+				]
+			},
+			win64: {
+				options: {
+					archive: 'build/MailJS-win-x64.zip',
+                    level: 9,
+                    pretty: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: './dist/MailJS-win32-x64',
+						src: ['**'],
+						dest: 'MailJS-Desktop',
+                        mode: 'gzip'
+					}
+				]
+			},
+			linux32: {
+				options: {
+					archive: 'build/MailJS-linux-ia32.tar.gz'
+				},
+				files: [
+					{
+						expand: true,
+						cwd: './dist/MailJS-linux-ia32',
+						src: ['**'],
+						dest: 'MailJS-Desktop',
+                        mode: 'tgz'
+					}
+				]
+			},
+			linux64: {
+				options: {
+					archive: 'build/MailJS-linux-x64.tar.gz'
+				},
+				files: [
+					{
+						expand: true,
+						cwd: './dist/MailJS-linux-x64',
+						src: ['**'],
+						dest: 'MailJS-Desktop',
+                        mode: 'tgz'
+					}
+				]
+			}
+		}
     });
 
     grunt.loadNpmTasks('grunt-electron-builder-wrapper');
     grunt.loadNpmTasks('grunt-electron');
     grunt.loadNpmTasks('grunt-rcedit');
+	grunt.loadNpmTasks('grunt-contrib-compress');
 
     grunt.registerTask('build', [
         'electron',
         'rcedit:pack',
-        'electron-builder'
+        'electron-builder',
+		'compress'
     ]);
 };
