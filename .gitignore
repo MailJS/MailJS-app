@@ -1,1 +1,5 @@
 node_modules
+MailJS-*
+dist
+build
+npm-debug.log

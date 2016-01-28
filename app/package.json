@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "MailJS desktop application",
   "main": "app.js",
-  "scripts": {
-    "start": "electron ./app/app.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MailJS/MailJS-app.git"
@@ -15,13 +12,5 @@
   "bugs": {
     "url": "https://github.com/MailJS/MailJS-app/issues"
   },
-  "homepage": "https://mailjs.net",
-  "devDependencies": {
-    "electron": "^0.4.1",
-    "electron-prebuilt": "^0.36.5",
-    "grunt": "^0.4.5",
-    "grunt-electron": "^2.0.1",
-    "grunt-electron-builder-wrapper": "^0.2.0",
-    "grunt-rcedit": "^0.3.4"
-  }
+  "homepage": "https://mailjs.net"
 }
